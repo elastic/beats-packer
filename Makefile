@@ -124,3 +124,8 @@ clean:
 latest:
 	BUILDID=${BUILDID} \
 	./xgo-scripts/latest.sh
+
+# Prints the download URLs. Only works after building
+.PHONY: list-urls
+list-urls:
+	find build/binary/upload/ -type f | grep -v sha | sed 's!build/binary/upload/!https://download.elastic.co/beats/!'
