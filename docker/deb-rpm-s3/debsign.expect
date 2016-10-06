@@ -11,7 +11,7 @@
 #
 #  expect debsign.expect example.deb other.deb
 
-spawn dpkg-sig --sign builder {*}$argv
+spawn dpkg-sig --sign builder --gpg-options="--digest-algo=SHA512" {*}$argv
 expect {
   "Enter passphrase: " {
     send -- "$env(PASS)\r"
